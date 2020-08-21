@@ -11,7 +11,7 @@ class Component extends BaseComponent
     public function run(): void
     {
         $this->getLogger()->info("Fantômas");
-        $this->getLogger()->info("Token:" . substr(getenv('KBC_TOKEN'), 0, 10))
+        $this->getLogger()->info("Token:" . substr(getenv('KBC_TOKEN'), 0, 10));
         // @TODO implement
     }
 
