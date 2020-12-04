@@ -19,7 +19,7 @@ class Component extends BaseComponent
         $m = new OutFileManifestOptions();
         $m->setTags(['Fantômas', 'was-here']);
         $mm = new ManifestManager($this->getDataDir());
-        $mm->writeFileManifest($this->getDataDir() . '/out/files/my-file', $m);
+        $mm->writeFileManifest('my-file', $m);
     }
 
     protected function getConfigClass(): string
