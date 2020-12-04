@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace MyComponent;
 
 use Keboola\Component\BaseComponent;
+use Keboola\Component\Manifest\ManifestManager;
+use Keboola\Component\Manifest\ManifestManager\Options\OutFileManifestOptions;
 
 class Component extends BaseComponent
 {
@@ -13,7 +15,11 @@ class Component extends BaseComponent
         $this->getLogger()->info('Fantômas');
         $this->getLogger()->info('Token: ' . substr(getenv('KBC_TOKEN'), 0, 10));
         $this->getLogger()->info('ConfigRow: ' . getenv('KBC_CONFIGROWID'));
-        // @TODO implement
+        file_put_contents($this->getDataDir() . '/out/files/my-file', 'Fantômas');
+        $m = new OutFileManifestOptions();
+        $m->setTags(['Fantômas', 'was-here']);
+        $mm = new ManifestManager($this->getDataDir());
+        $mm->writeFileManifest($this->getDataDir() . '/out/files/my-file', $m);
     }
 
     protected function getConfigClass(): string
