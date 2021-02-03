@@ -15,7 +15,8 @@ class Component extends BaseComponent
         $this->getLogger()->info('Fantômas');
         $this->getLogger()->info('Token: ' . substr(getenv('KBC_TOKEN'), 0, 10));
         $this->getLogger()->info('ConfigRow: ' . getenv('KBC_CONFIGROWID'));
-        $this->getLogger()->info('BrancId: ' . getenv('KBC_BRANCHID'));
+        $this->getLogger()->info('BranchId: ' . getenv('KBC_BRANCHID'));
+        $this->getLogger()->info('RealUser: ' . getenv('KBC_REALUSER'));
         file_put_contents($this->getDataDir() . '/out/files/my-file', 'Fantômas');
         $m = new OutFileManifestOptions();
         $m->setTags(['Fantômas', 'was-here']);
