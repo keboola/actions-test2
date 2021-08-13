@@ -17,6 +17,7 @@ class Component extends BaseComponent
         $this->getLogger()->info('ConfigRow: ' . getenv('KBC_CONFIGROWID'));
         $this->getLogger()->info('BranchId: ' . getenv('KBC_BRANCHID'));
         $this->getLogger()->info('RealUser: ' . getenv('KBC_REALUSER'));
+        $this->getLogger()->info('StagingFileProvider: ' . getenv('KBC_STAGING_FILE_PROVIDER'));
         file_put_contents($this->getDataDir() . '/out/files/my-file', 'Fantômas');
         $m = new OutFileManifestOptions();
         $m->setTags(['Fantômas', 'was-here']);
