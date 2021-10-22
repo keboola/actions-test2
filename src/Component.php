@@ -25,6 +25,16 @@ class Component extends BaseComponent
         $mm->writeFileManifest('my-file', $m);
     }
 
+    public function getSyncActions(): array
+    {
+        return ['first' => 'firstAction', 'second' => 'secondAction'];
+    }
+
+    public function firstAction(): array
+    {
+        return $this->getConfig()->getParameters();
+    }
+
     protected function getConfigClass(): string
     {
         return Config::class;
