@@ -13,7 +13,7 @@ class Component extends BaseComponent
     protected function run(): void
     {
         $this->getLogger()->info('Fantômas');
-        $this->getLogger()->info('Token: ' . substr(getenv('KBC_TOKEN'), 0, 10));
+        $this->getLogger()->info('Token: ' . substr((string) getenv('KBC_TOKEN'), 0, 10));
         $this->getLogger()->info('ConfigRow: ' . getenv('KBC_CONFIGROWID'));
         $this->getLogger()->info('BranchId: ' . getenv('KBC_BRANCHID'));
         $this->getLogger()->info('RealUser: ' . getenv('KBC_REALUSER'));
@@ -33,6 +33,11 @@ class Component extends BaseComponent
     public function firstAction(): array
     {
         return $this->getConfig()->getParameters();
+    }
+
+    public function secondAction(): array
+    {
+        return ['boo' => 'bar'];
     }
 
     protected function getConfigClass(): string
