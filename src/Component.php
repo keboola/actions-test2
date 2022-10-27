@@ -19,6 +19,7 @@ class Component extends BaseComponent
         $this->getLogger()->info('RealUser: ' . getenv('KBC_REALUSER'));
         $this->getLogger()->info('StagingFileProvider: ' . getenv('KBC_STAGING_FILE_PROVIDER'));
         file_put_contents($this->getDataDir() . '/out/files/my-file', 'Fantômas');
+        $this->getLogger()->info(file_get_contents($this->getDataDir() . 'config.json'));
         $m = new OutFileManifestOptions();
         $m->setTags(['Fantômas', 'was-here']);
         $mm = new ManifestManager($this->getDataDir());
