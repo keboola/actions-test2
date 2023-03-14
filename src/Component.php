@@ -18,6 +18,7 @@ class Component extends BaseComponent
         $this->getLogger()->info('BranchId: ' . getenv('KBC_BRANCHID'));
         $this->getLogger()->info('RealUser: ' . getenv('KBC_REALUSER'));
         $this->getLogger()->info('StagingFileProvider: ' . getenv('KBC_STAGING_FILE_PROVIDER'));
+        $this->getLogger()->info('Features: ' . getenv('KBC_PROJECT_FEATURE_GATES'));
         file_put_contents($this->getDataDir() . '/out/files/my-file', 'Fantômas');
         $this->getLogger()->info((string) file_get_contents($this->getDataDir() . '/config.json'));
         $m = new OutFileManifestOptions();
