@@ -34,7 +34,13 @@ class Component extends BaseComponent
 
     public function firstAction(): array
     {
-        return $this->getConfig()->getParameters();
+        return array_merge(
+            $this->getConfig()->getParameters(),
+            [
+                'KBC_BRANCHID' => getenv('KBC_BRANCHID'),
+                'KBC_PROJECT_FEATURE_GATES' => getenv('KBC_PROJECT_FEATURE_GATES'),
+            ]
+        );
     }
 
     public function secondAction(): array
